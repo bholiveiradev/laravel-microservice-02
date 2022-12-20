@@ -11,6 +11,8 @@ services:
         restart: unless-stopped
         volumes:
             - ./:/var/www
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         networks:
             - microservices_02
 

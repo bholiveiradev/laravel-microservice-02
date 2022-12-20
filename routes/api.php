@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EvaluationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/evaluations/{uuid}', [EvaluationController::class, 'index']);
+Route::post('/evaluations/{uuid}', [EvaluationController::class, 'store']);
+
 Route::get('/', function () {
-    return response()->json(['message' => 'micro 02 is online']);
+    return response()->json(['status' => 'micro 02 is online']);
 });
